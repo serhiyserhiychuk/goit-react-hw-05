@@ -18,26 +18,23 @@ const App = () => {
     setIsMoreToLoad(true);
     async function handleSearch() {
       try {
-        const baseURL =
-          "https://api.unsplash.com/search/photos?client_id=OZ4LcaR_w8EOzH6tuoKvWOmMgGbKqowTrf-FN000WKI";
-        setIsLoading(true);
-        const images = await axios.get(
-          `${baseURL}&page=${page}&per_page=8&orientation=landscape&query=${query}`
-        );
-        if (images.data.results.length === 0) {
-          setError(true);
-        }
-        if (images.data.total_pages <= 1) {
-          setIsMoreToLoad(false);
-        }
-        if (page === 1) {
-          setResponse(images.data.results);
-        } else {
-          setResponse((prevResponse) => [
-            ...prevResponse,
-            ...images.data.results,
-          ]);
-        }
+        const url =
+          "https://api.themoviedb.org/3/trending/movie/day?include_adult=false&language=en-US&page=1";
+
+        const options = {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NGJkNTI2ODAzNTJjMDE0ZWZjZWQ5ZGFhYTUwMDllZiIsInN1YiI6IjY1ZTg4YTc4MzQ0YThlMDE3ZDNmOTQwOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.K7uRgoy410QIvHHOPnuEjqzjKZ2zF9nDWXjxlS2k7ls",
+          },
+        };
+
+        axios
+          .get(url, options)
+          .then((response) => response.json())
+          .then((response) => console.log(response))
+          .catch((err) => console.error(err));
       } catch (error) {
         setError(true);
       } finally {
