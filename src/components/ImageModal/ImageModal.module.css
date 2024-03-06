@@ -1,0 +1,43 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    rgba(46, 47, 66, 0.7),
+    rgba(46, 47, 66, 0.7)
+  );
+}
+.modal {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  margin-top: 5%;
+  position: relative;
+}
+.title {
+  position: absolute;
+  bottom: 30px;
+  left: 25%;
+}
+.text {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  font-size: 20px;
+  font-weight: 600;
+}
+.button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background-color: transparent;
+}
+.image {
+  width: 900px;
+  height: 600px;
+  margin: auto;
+}
