@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  gap: 8px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.input {
+  width: 300px;
+  box-shadow: 5px 5px 10px gray;
+  border: none;
+}
+.button {
+  background-color: #ffffff;
+  color: #000000;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus {
+  color: orangered;
+  border-color: orangered;
+}
