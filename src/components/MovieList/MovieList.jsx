@@ -6,17 +6,15 @@ import css from "./MovieList.module.css";
 
 export default function MovieList({ query }) {
   const [response, setResponse] = useState([]);
-  const [url, setUrl] = useState(
-    "https://api.themoviedb.org/3/trending/movie/day?include_adult=false&language=en-US&page=1"
-  );
+  const [url, setUrl] = useState(() => {
+    if (query === "") {
+      return "https://api.themoviedb.org/3/trending/movie/day?include_adult=false&language=en-US&page=1";
+    } else {
+      return `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`;
+    }
+  });
 
   useEffect(() => {
-    if (query !== "") {
-      setUrl(
-        `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`
-      );
-    }
-
     const options = {
       method: "GET",
       headers: {
