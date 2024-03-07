@@ -1,5 +1,5 @@
 import { useState } from "react";
-import css from "./MoviesPage.module.css";
+import SearchForm from "../../components/SearchForm/SearchForm";
 import MovieList from "../../components/MovieList/MovieList";
 
 export default function MoviesPage() {
@@ -11,16 +11,7 @@ export default function MoviesPage() {
   };
   return (
     <>
-      <form className={css.form} onSubmit={onSubmit}>
-        <input
-          className={css.input}
-          type="text"
-          name="query"
-          placeholder="Search movies with the title"
-          required
-        />
-        <button className={css.button}>Search</button>
-      </form>
+      <SearchForm onSubmit={onSubmit} />
       {query !== "" && <MovieList query={query} />}
     </>
   );

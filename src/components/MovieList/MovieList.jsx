@@ -43,7 +43,7 @@ export default function MovieList({ query }) {
     <ul className={css.list}>
       {response.map((movie) => (
         <li key={movie.id}>
-          <Link to="/movies/:{movie.id}">
+          <Link to={`/movies/:${movie.id}`}>
             <span className={css.link}>{movie.title}</span>
           </Link>
         </li>
