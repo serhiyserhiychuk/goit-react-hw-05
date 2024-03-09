@@ -29,16 +29,20 @@ export default function MovieReviews() {
   return (
     <>
       {isLoading && <Loader />}
-      <ul className={css.list}>
-        {response.map((review) => {
-          return (
-            <li key={review.id}>
-              <h3>Author: {review.author}</h3>
-              <p>{review.content}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {response.length === 0 ? (
+        <div>We don`t have any reviews for this movie.</div>
+      ) : (
+        <ul className={css.list}>
+          {response.map((review) => {
+            return (
+              <li key={review.id}>
+                <h3>Author: {review.author}</h3>
+                <p>{review.content}</p>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
   );
 }
