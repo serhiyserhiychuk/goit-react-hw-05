@@ -26,11 +26,15 @@ export default function MovieCard({ movie, backLink }) {
             <h3>Overview</h3>
             <p>{movie.overview}</p>
             <h3>Genres</h3>
-            <ul className={css.list}>
-              {movie.genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
-              ))}
-            </ul>
+            {movie.genres.length === 0 ? (
+              <div>No info</div>
+            ) : (
+              <ul className={css.list}>
+                {movie.genres.map((genre) => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
         <ul className={css.info}>

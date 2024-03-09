@@ -29,20 +29,24 @@ export default function MovieCast() {
   return (
     <>
       {isLoading && <Loader />}
-      <ul className={css.list}>
-        {response.map((actor) => {
-          return (
-            <li key={actor.id}>
-              <img
-                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
-                alt="actor"
-              />
-              <p>{actor.character}</p>
-              <p>{actor.name}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {response.length === 0 ? (
+        <div>We don`t have cast info for this movie.</div>
+      ) : (
+        <ul className={css.list}>
+          {response.map((actor) => {
+            return (
+              <li key={actor.id}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                  alt="actor"
+                />
+                <p>{actor.character}</p>
+                <p>{actor.name}</p>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
   );
 }
