@@ -1,0 +1,33 @@
+.button {
+  height: 24px;
+  font-size: 16px;
+  color: #000000;
+  align-items: center;
+  background-color: white;
+  margin-bottom: 12px;
+}
+.button:hover,
+.button:focus {
+  color: orangered;
+  border-color: orangered;
+}
+.maindiv {
+  display: flex;
+  gap: 40px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #000000;
+}
+.div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.list {
+  display: flex;
+  gap: 8px;
+}
+.info {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+}
